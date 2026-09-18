@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es" class="no-js">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculadora de interés compuesto online gratis | CalculaPro</title>
+<!-- TODO DOMINIO: sustituye TU-DOMINIO-AQUI.com por tu dominio real antes de publicar (canonical, og:image, contacto). No se ha inventado un dominio real a propósito. -->
+<meta name="description" content="Simula cómo crece tu ahorro o inversión con interés compuesto y aportaciones periódicas. Gráfico, tabla mes a mes y sin registro.">
+<link rel="canonical" href="https://TU-DOMINIO-AQUI.com/interes-compuesto.html">
+<meta property="og:title" content="Calculadora de interés compuesto online gratis | CalculaPro">
+<meta property="og:description" content="Descubre cuánto puede crecer tu ahorro con aportaciones periódicas e interés compuesto.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/img/og-interes.webp">
+<meta name="theme-color" content="#0d8a5f">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Manrope:wght@500;600;700;800&family=IBM+Plex+Mono:wght@600;700&display=swap">
+<link rel="stylesheet" href="styles.css?v=20260918">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Calculadora de interés compuesto — CalculaPro",
+  "description": "Simula el crecimiento de un capital con aportaciones periódicas e interés compuesto capitalizado mensualmente.",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any (navegador web)",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Qué es el interés compuesto?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Es el interés que se calcula no solo sobre el capital inicial, sino también sobre los intereses ya generados en periodos anteriores. Por eso el crecimiento se acelera con el tiempo: es literalmente \"interés sobre interés\"."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo afectan las aportaciones periódicas al resultado?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cada aportación adicional empieza a generar sus propios intereses desde el momento en que la haces, así que aportar de forma constante (aunque sea poco) suele pesar más a largo plazo que una única aportación grande al principio."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué rentabilidad anual es realista para simular?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Depende del producto: una cuenta remunerada o depósito puede rondar el 1-3% anual, un fondo indexado diversificado a largo plazo históricamente ha rondado el 5-8% anual de media (con años muy por encima y otros negativos), y la renta variable individual puede ser mucho más volátil. Ninguna rentabilidad futura está garantizada."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cada cuánto se capitaliza el interés en esta calculadora?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Esta calculadora capitaliza mensualmente: cada mes se suman los intereses generados al capital acumulado antes de calcular el siguiente periodo, y después se añade tu aportación periódica si la has indicado."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué es la regla del 72?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Una forma rápida de estimar cuánto tarda tu dinero en duplicarse: divide 72 entre el porcentaje de rentabilidad anual. Al 6% anual, por ejemplo, tardarías aproximadamente 72 ÷ 6 = 12 años en duplicar el capital, sin contar aportaciones adicionales."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Esta calculadora tiene en cuenta la inflación o los impuestos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Muestra el crecimiento nominal del capital según la rentabilidad que introduzcas. La inflación reduce el poder adquisitivo real de ese dinero, y en España las ganancias suelen tributar en la base del ahorro del IRPF al retirarlas; ninguno de los dos efectos está incluido en el cálculo."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5L12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9 21v-6h6v6"/></svg></span>
+      CalculaPro
+    </a>
+    <nav class="main-nav" data-nav aria-label="Herramientas"></nav>
+    <button class="nav-toggle" type="button" id="nav-toggle" aria-expanded="false" aria-controls="mobile-nav-panel" aria-label="Abrir menú de herramientas">
+      <svg class="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+      <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="nav-scrim" id="nav-scrim"></div>
+  <nav class="mobile-nav-panel" id="mobile-nav-panel" data-nav aria-label="Herramientas (móvil)"></nav>
+</header>
+
+<main id="main">
+
+  <section class="hero">
+    <div class="wrap">
+      <p class="breadcrumb"><a href="index.html">CalculaPro</a> / Interés compuesto</p>
+      <span class="eyebrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 17 9 11 13 15 21 6"/><polyline points="14 6 21 6 21 13"/></svg>
+        Herramienta financiera gratuita
+      </span>
+      <h1>Calcula cuánto crecerá tu ahorro con interés compuesto</h1>
+      <p class="subtitle">Introduce tu capital inicial, la aportación mensual y la rentabilidad esperada. Verás cuánto puede crecer tu ahorro o inversión mes a mes.</p>
+
+      <div class="trust-badges">
+        <span class="trust-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6l8-4z"/></svg> 100% privado</span>
+        <span class="trust-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> Resultado al instante</span>
+        <span class="trust-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="13" rx="1"/><path d="M12 8v13M3 12h18"/></svg> Gratis, sin registro</span>
+      </div>
+
+      <nav class="tool-switcher" data-tool-switcher aria-label="Cambiar de calculadora"></nav>
+
+      <form class="tool-card" id="form-interes" novalidate>
+        <div class="tool-card__head">
+          <span class="tool-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 17 9 11 13 15 21 6"/><polyline points="14 6 21 6 21 13"/></svg></span>
+          <div><h2>Calculadora de interés compuesto</h2><p>Rellena los 4 campos y pulsa calcular</p></div>
+        </div>
+
+        <div class="tool-grid">
+          <div class="field">
+            <label for="capital-inicial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h13a1 1 0 0 1 1 1v3"/><path d="M3 7v11a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-8a1 1 0 0 0-1-1H5a2 2 0 0 1-2-3Z"/></svg> Capital inicial</label>
+            <div class="input-affix">
+              <input type="text" inputmode="decimal" id="capital-inicial" name="capital-inicial" value="1.000" required>
+              <span class="affix">€</span>
+            </div>
+            <span class="field-hint">Lo que ya tienes ahorrado hoy.</span>
+            <span class="field-error" role="alert"></span>
+          </div>
+          <div class="field">
+            <label for="aportacion-mensual"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="13" rx="1"/><path d="M12 8v13M3 12h18"/></svg> Aportación mensual</label>
+            <div class="input-affix">
+              <input type="text" inputmode="decimal" id="aportacion-mensual" name="aportacion-mensual" value="100" required>
+              <span class="affix">€</span>
+            </div>
+            <span class="field-hint">Lo que añades cada mes (puede ser 0).</span>
+            <span class="field-error" role="alert"></span>
+          </div>
+          <div class="field">
+            <label for="rentabilidad-anual"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg> Rentabilidad anual esperada</label>
+            <div class="input-affix">
+              <input type="text" inputmode="decimal" id="rentabilidad-anual" name="rentabilidad-anual" value="6" required>
+              <span class="affix">%</span>
+            </div>
+            <span class="field-hint">Ninguna rentabilidad futura está garantizada.</span>
+            <span class="field-error" role="alert"></span>
+          </div>
+          <div class="field">
+            <label for="plazo-interes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><line x1="16" y1="3" x2="16" y2="7"/><line x1="8" y1="3" x2="8" y2="7"/><line x1="3" y1="10" x2="21" y2="10"/></svg> Plazo</label>
+            <div class="input-affix">
+              <input type="text" inputmode="decimal" id="plazo-interes" name="plazo-interes" value="15" required>
+              <span class="affix">años</span>
+            </div>
+            <span class="field-hint">Durante cuánto tiempo vas a ahorrar.</span>
+            <span class="field-error" role="alert"></span>
+          </div>
+        </div>
+
+        <div class="tool-actions">
+          <button type="submit" class="btn btn-primary">
+            <span class="btn-spinner"></span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 17 9 11 13 15 21 6"/><polyline points="14 6 21 6 21 13"/></svg>
+            <span class="btn-label">Calcular crecimiento</span>
+          </button>
+          <button type="button" class="btn btn-ghost" id="reset-interes">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+            Limpiar
+          </button>
+        </div>
+
+        <p class="error-msg" id="error-interes" role="alert">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg>
+          <span></span>
+        </p>
+
+        <div class="result-zone" id="resultado-interes" aria-live="polite">
+          <div class="result-hero">
+            <span class="result-hero__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 17 9 11 13 15 21 6"/><polyline points="14 6 21 6 21 13"/></svg></span>
+            <div>
+              <div class="result-hero__label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"/></svg> Saldo final estimado</div>
+              <div class="big" id="out-balance-final">—</div>
+              <p class="field-hint" id="out-subtitle-interes" style="margin-top:.3rem"></p>
+            </div>
+          </div>
+
+          <p class="result-grid-label">Detalle del cálculo</p>
+          <div class="result-grid">
+            <div class="result-stat"><span class="result-stat__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="13" rx="1"/><path d="M12 8v13M3 12h18"/></svg></span><div><div class="label">Total aportado</div><div class="value" id="out-total-aportado">—</div></div></div>
+            <div class="result-stat"><span class="result-stat__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg></span><div><div class="label">Intereses generados</div><div class="value" id="out-total-interes-compuesto">—</div></div></div>
+          </div>
+
+          <div class="subresult-card">
+            <div class="subresult-card__head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 17 9 11 13 15 21 6"/><polyline points="14 6 21 6 21 13"/></svg><h3>Evolución del ahorro</h3></div>
+            <div class="chart-wrap">
+              <canvas id="chart-interes" aria-label="Gráfico de aportaciones acumuladas frente a intereses generados por año" role="img"></canvas>
+              <div class="chart-legend">
+                <span><i style="background:#0d8a5f"></i> Aportado (acumulado)</span>
+                <span><i style="background:#b1650f"></i> Intereses generados (acumulado)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="subresult-card">
+            <div class="subresult-card__head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg><h3>Tabla de evolución mensual</h3></div>
+            <p class="table-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg> Desliza para ver todas las columnas</p>
+            <div class="table-wrap" id="tabla-interes" aria-label="Tabla de evolución mensual"></div>
+          </div>
+        </div>
+
+        <p class="js-warning">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg>
+          Esta herramienta necesita JavaScript activado en tu navegador para hacer la simulación.
+        </p>
+
+        <div class="privacy-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6l8-4z"/></svg>
+          <span><strong>100% privado.</strong> El cálculo se hace en tu navegador. Es una simulación orientativa con rentabilidad constante; no constituye asesoría de inversión.</span>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="ad-slot ad-slot--leaderboard">Publicidad
+      <!-- PEGA AQUÍ TU CÓDIGO DE ADSENSE -->
+    </div>
+  </div>
+
+  <section class="content-block reveal">
+    <div class="wrap-narrow">
+      <h2>Por qué el interés compuesto crece de forma acelerada</h2>
+      <p>Con interés simple, solo el capital inicial genera intereses. Con <strong>interés compuesto</strong>, los intereses de cada periodo se suman al capital y a partir de ese momento también generan sus propios intereses — es "interés sobre interés". Por eso una misma rentabilidad anual produce resultados muy distintos a 5 años que a 25 años: el efecto se nota poco al principio y se dispara al final.</p>
+
+      <h2>La regla del 72</h2>
+      <p>Una forma mental rápida de estimar cuánto tarda un capital en duplicarse (sin aportaciones adicionales): divide 72 entre la rentabilidad anual. Al 6% anual, tardarías aproximadamente 72 ÷ 6 = 12 años. Al 3%, el doble: unos 24 años. Es una aproximación, no un cálculo exacto — para eso está la calculadora de arriba.</p>
+
+      <h2>Qué rentabilidad es realista simular</h2>
+      <ul class="checklist">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"/></svg> Cuenta remunerada o depósito a plazo: entre el 1% y el 3% anual aproximadamente.</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"/></svg> Fondo indexado diversificado a largo plazo: históricamente entre el 5% y el 8% anual de media, con años muy por encima y otros negativos.</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"/></svg> Renta variable individual: potencialmente mayor rentabilidad, pero también mucha más volatilidad.</li>
+      </ul>
+      <p>Esta calculadora asume una rentabilidad anual constante para simplificar el cálculo. En la vida real, la rentabilidad varía de un año a otro; trata el resultado como una estimación orientativa, no como una promesa.</p>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="ad-slot ad-slot--incontent">Publicidad
+      <!-- PEGA AQUÍ TU CÓDIGO DE ADSENSE -->
+    </div>
+  </div>
+
+  <section class="content-block reveal">
+    <div class="wrap-narrow">
+      <h2>Preguntas frecuentes sobre interés compuesto</h2>
+      <div class="faq-list" data-faq-interes></div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="wrap-narrow">
+      <h2>Más calculadoras</h2>
+      <div class="tools-grid" data-tools-grid></div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="brand"><span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5L12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9 21v-6h6v6"/></svg></span> CalculaPro</div>
+      <div class="footer-links">
+        <a href="privacidad.html">Privacidad</a>
+        <a href="aviso-legal.html">Aviso legal</a>
+        <a href="mailto:hola@TU-DOMINIO-AQUI.com">Contacto</a>
+      </div>
+    </div>
+    <p class="footer-note">CalculaPro ofrece herramientas de cálculo orientativas. Los resultados no constituyen asesoramiento financiero, fiscal ni legal. © <span data-year></span> CalculaPro.</p>
+  </div>
+</footer>
+
+<script defer src="lib/manifest.js"></script>
+<script defer src="main.js?v=20260918"></script>
+</body>
+</html>

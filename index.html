@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="es" class="no-js">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculadora de hipoteca online gratis | CalculaPro</title>
+<!-- TODO DOMINIO: sustituye TU-DOMINIO-AQUI.com por tu dominio real antes de publicar (canonical, og:image, contacto). No se ha inventado un dominio real a propósito. -->
+<meta name="description" content="Calcula la cuota mensual de tu hipoteca, los intereses totales y la tabla de amortización completa. Gratis, sin registro y sin enviar tus datos a ningún servidor.">
+<link rel="canonical" href="https://TU-DOMINIO-AQUI.com/index.html">
+<meta property="og:title" content="Calculadora de hipoteca online gratis | CalculaPro">
+<meta property="og:description" content="Cuota mensual, intereses totales y tabla de amortización de tu hipoteca en segundos.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/img/og-hipoteca.webp">
+<meta name="theme-color" content="#0d8a5f">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Manrope:wght@500;600;700;800&family=IBM+Plex+Mono:wght@600;700&display=swap">
+<link rel="stylesheet" href="styles.css?v=20260918">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Calculadora de hipoteca — CalculaPro",
+  "description": "Calcula la cuota mensual, los intereses totales y la tabla de amortización de una hipoteca según capital, interés y plazo.",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any (navegador web)",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Cómo se calcula la cuota mensual de una hipoteca?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Se usa el sistema de amortización francés: la cuota es constante cada mes, pero al principio pagas más intereses y menos capital, y con el tiempo la proporción se invierte. La fórmula es cuota = P × r / (1 − (1+r)⁻ⁿ), donde P es el capital pedido, r el interés mensual y n el número total de meses."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué diferencia hay entre TIN y TAE?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El TIN (Tipo de Interés Nominal) es el interés puro del préstamo. La TAE (Tasa Anual Equivalente) añade comisiones y gastos, por eso siempre es igual o mayor que el TIN y es la cifra más fiable para comparar ofertas de distintos bancos."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué pasa si amortizo capital anticipadamente?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Al reducir el capital pendiente, pagas menos intereses en lo que queda de hipoteca. Puedes elegir entre reducir la cuota mensual (misma duración, pagas menos cada mes) o reducir el plazo (misma cuota, terminas antes). Esta calculadora no simula amortizaciones parciales, pero puedes comparar dos escenarios distintos cambiando el capital o el plazo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Es mejor una hipoteca fija o variable?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La fija mantiene la misma cuota durante toda la vida del préstamo, dando seguridad frente a subidas de tipos. La variable suele empezar con un interés más bajo (referenciado al Euríbor + diferencial) pero puede subir o bajar con el tiempo. La calculadora asume un tipo fijo; para una variable, prueba distintos escenarios de interés para ver el rango de cuotas posible."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuánto tengo que ahorrar antes de pedir una hipoteca?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Lo habitual en España es que los bancos financien hasta el 80% del valor de tasación de la vivienda habitual, por lo que necesitarás cubrir al menos el 20% restante más los gastos de compraventa (notaría, registro, impuestos), que suelen rondar otro 10-12% adicional."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué es la tabla de amortización?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Es el desglose mes a mes de tu hipoteca: cuánto de cada cuota va a capital y cuánto a intereses, y cuánto capital te queda pendiente. Al principio del préstamo la mayor parte de la cuota son intereses; con los años esa proporción se invierte."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Este cálculo tiene en cuenta comisiones o seguros obligatorios?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Esta calculadora estima la cuota pura de capital e intereses según el TIN que introduzcas. Si tu banco exige seguro de hogar, de vida o comisión de apertura, súmalos aparte para conocer el coste real mensual."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puedo usar esta calculadora para un local comercial o segunda vivienda?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí, la fórmula matemática es la misma. Ten en cuenta que los bancos suelen exigir más entrada (a veces el 100%) y ofrecer peores condiciones para segundas viviendas o inmuebles no destinados a vivienda habitual."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5L12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9 21v-6h6v6"/></svg></span>
+      CalculaPro
+    </a>
+    <nav class="main-nav" data-nav aria-label="Herramientas"></nav>
+    <button class="nav-toggle" type="button" id="nav-toggle" aria-expanded="false" aria-controls="mobile-nav-panel" aria-label="Abrir menú de herramientas">
+      <svg class="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+      <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="nav-scrim" id="nav-scrim"></div>
+  <nav class="mobile-nav-panel" id="mobile-nav-panel" data-nav aria-label="Herramientas (móvil)"></nav>
+</header>
+
+<main id="main">
+
+  <section class="hero">
+    <div class="wrap">
+      <span class="eyebrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5L12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg>
+        Herramienta financiera gratuita
+      </span>
+      <h1>Calcula la cuota de tu hipoteca en segundos</h1>
+      <p class="subtitle">Introduce el precio, tu entrada, el interés y el plazo. Verás al instante la cuota mensual, los intereses totales y la tabla de amortización completa.</p>
+
+      <div class="trust-badges">
+        <span class="trust-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6l8-4z"/></svg> 100% privado</span>
+        <span class="trust-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> Resultado al instante</span>
+        <span class="trust-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="13" rx="1"/><path d="M12 8v13M3 12h18"/></svg> Gratis, sin registro</span>
+      </div>
+
+      <nav class="tool-switcher" data-tool-switcher aria-label="Cambiar de calculadora"></nav>
+
+      <form class="tool-card" id="form-hipoteca" novalidate>
+        <div class="tool-card__head">
+          <span class="tool-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="8" y2="10.01"/><line x1="12" y1="10" x2="12" y2="10.01"/><line x1="16" y1="10" x2="16" y2="10.01"/><line x1="8" y1="14" x2="8" y2="14.01"/><line x1="12" y1="14" x2="12" y2="14.01"/><line x1="16" y1="14" x2="16" y2="14.01"/><line x1="8" y1="18" x2="16" y2="18"/></svg></span>
+          <div><h2>Calculadora de hipoteca</h2><p>Rellena los 4 campos y pulsa calcular</p></div>
+        </div>
+
+        <div class="tool-grid">
+          <div class="field">
+            <label for="precio-vivienda"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5L12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg> Precio de la vivienda</label>
+            <div class="input-affix">
+              <input type="text" inputmode="decimal" id="precio-vivienda" name="precio-vivienda" value="180.000" required aria-describedby="hint-precio">
+              <span class="affix">€</span>
+            </div>
+            <span class="field-hint" id="hint-precio">Precio total de compra del inmueble.</span>
+            <span class="field-error" role="alert"></span>
+          </div>
+          <div class="field">
+            <label for="entrada-pct"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg> Entrada (ahorro propio)</label>
+            <div class="input-affix">
+              <input type="text" inputmode="decimal" id="entrada-pct" name="entrada-pct" value="20" required>
+              <span class="affix">%</span>
+            </div>
+            <span class="field-hint">Los bancos suelen financiar hasta el 80%.</span>
+            <span class="field-error" role="alert"></span>
+          </div>
+          <div class="field">
+            <label for="interes-hipoteca"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg> Interés (TIN anual)</label>
+            <div class="input-affix">
+              <input type="text" inputmode="decimal" id="interes-hipoteca" name="interes-hipoteca" value="3,2" required>
+              <span class="affix">%</span>
+            </div>
+            <span class="field-hint">El tipo de interés nominal del banco.</span>
+            <span class="field-error" role="alert"></span>
+          </div>
+          <div class="field">
+            <label for="plazo-hipoteca"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><line x1="16" y1="3" x2="16" y2="7"/><line x1="8" y1="3" x2="8" y2="7"/><line x1="3" y1="10" x2="21" y2="10"/></svg> Plazo</label>
+            <div class="input-affix">
+              <input type="text" inputmode="decimal" id="plazo-hipoteca" name="plazo-hipoteca" value="25" required>
+              <span class="affix">años</span>
+            </div>
+            <span class="field-hint">Duración total del préstamo.</span>
+            <span class="field-error" role="alert"></span>
+          </div>
+        </div>
+
+        <div class="tool-actions">
+          <button type="submit" class="btn btn-primary">
+            <span class="btn-spinner"></span>
+            <svg class="btn-label-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="14" x2="16" y2="14"/><line x1="8" y1="18" x2="16" y2="18"/></svg>
+            <span class="btn-label">Calcular cuota</span>
+          </button>
+          <button type="button" class="btn btn-ghost" id="reset-hipoteca">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+            Limpiar
+          </button>
+        </div>
+
+        <p class="error-msg" id="error-hipoteca" role="alert">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg>
+          <span></span>
+        </p>
+
+        <div class="result-zone" id="resultado-hipoteca" aria-live="polite">
+          <div class="result-hero">
+            <span class="result-hero__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="18" x2="16" y2="18"/></svg></span>
+            <div>
+              <div class="result-hero__label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"/></svg> Cuota mensual</div>
+              <div class="big" id="out-cuota">—</div>
+              <p class="field-hint" id="out-subtitle" style="margin-top:.3rem"></p>
+            </div>
+          </div>
+
+          <p class="result-grid-label">Detalle del cálculo</p>
+          <div class="result-grid">
+            <div class="result-stat"><span class="result-stat__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/></svg></span><div><div class="label">Capital financiado</div><div class="value" id="out-capital">—</div></div></div>
+            <div class="result-stat"><span class="result-stat__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="13" rx="1"/><path d="M12 8v13M3 12h18"/></svg></span><div><div class="label">Entrada aportada</div><div class="value" id="out-entrada">—</div></div></div>
+            <div class="result-stat"><span class="result-stat__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h13a1 1 0 0 1 1 1v3"/><path d="M3 7v11a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-8a1 1 0 0 0-1-1H5a2 2 0 0 1-2-3Z"/></svg></span><div><div class="label">Total pagado</div><div class="value" id="out-total-pagado">—</div></div></div>
+            <div class="result-stat"><span class="result-stat__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg></span><div><div class="label">Total intereses</div><div class="value" id="out-total-interes">—</div></div></div>
+          </div>
+
+          <div class="subresult-card">
+            <div class="subresult-card__head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 17 9 11 13 15 21 6"/><polyline points="14 6 21 6 21 13"/></svg><h3>Evolución del pago</h3></div>
+            <div class="chart-wrap">
+              <canvas id="chart-hipoteca" aria-label="Gráfico de capital amortizado frente a intereses pagados por año" role="img"></canvas>
+              <div class="chart-legend">
+                <span><i style="background:#0d8a5f"></i> Capital amortizado (acumulado)</span>
+                <span><i style="background:#b1650f"></i> Intereses pagados (acumulado)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="subresult-card">
+            <div class="subresult-card__head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg><h3>Tabla de amortización completa</h3></div>
+            <p class="table-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg> Desliza para ver todas las columnas</p>
+            <div class="table-wrap" id="tabla-hipoteca" aria-label="Tabla de amortización mensual"></div>
+          </div>
+
+          <button type="button" class="btn btn-ghost btn-block compare-toggle" id="toggle-comparar" aria-expanded="false">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+            <span class="btn-label">Comparar dos escenarios</span>
+          </button>
+          <div class="compare-panel" id="panel-comparar">
+            <form id="form-hipoteca-b">
+              <div class="compare-grid">
+                <div class="compare-col">
+                  <h4>Escenario A (arriba)</h4>
+                  <p class="field-hint">Usa los valores del formulario principal.</p>
+                  <div class="result-stat" style="margin-top:.7rem"><div><div class="label">Cuota</div><div class="value" id="out-cuota-mirror" style="font-size:.85rem">Se actualiza al calcular</div></div></div>
+                </div>
+                <div class="compare-col">
+                  <h4>Escenario B</h4>
+                  <div class="field" style="margin-bottom:.7rem">
+                    <label for="precio-vivienda-b">Precio</label>
+                    <div class="input-affix"><input type="text" inputmode="decimal" id="precio-vivienda-b" value="180.000"><span class="affix">€</span></div>
+                  </div>
+                  <div class="field" style="margin-bottom:.7rem">
+                    <label for="entrada-pct-b">Entrada</label>
+                    <div class="input-affix"><input type="text" inputmode="decimal" id="entrada-pct-b" value="20"><span class="affix">%</span></div>
+                  </div>
+                  <div class="field" style="margin-bottom:.7rem">
+                    <label for="interes-hipoteca-b">Interés</label>
+                    <div class="input-affix"><input type="text" inputmode="decimal" id="interes-hipoteca-b" value="4"><span class="affix">%</span></div>
+                  </div>
+                  <div class="field" style="margin-bottom:.9rem">
+                    <label for="plazo-hipoteca-b">Plazo</label>
+                    <div class="input-affix"><input type="text" inputmode="decimal" id="plazo-hipoteca-b" value="30"><span class="affix">años</span></div>
+                  </div>
+                  <button type="submit" class="btn btn-primary btn-block"><span class="btn-label">Recalcular B</span></button>
+                  <div class="result-grid" style="margin-top:.9rem">
+                    <div class="result-stat"><div><div class="label">Cuota B</div><div class="value" id="out-cuota-b">—</div></div></div>
+                    <div class="result-stat"><div><div class="label">Intereses B</div><div class="value" id="out-total-interes-b">—</div></div></div>
+                    <div class="result-stat"><div><div class="label">Total pagado B</div><div class="value" id="out-total-pagado-b">—</div></div></div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <p class="js-warning">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg>
+          Esta herramienta necesita JavaScript activado en tu navegador para calcular la hipoteca.
+        </p>
+
+        <div class="privacy-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6l8-4z"/></svg>
+          <span><strong>100% privado.</strong> Todos los cálculos se hacen en tu navegador. Ningún dato sale de tu dispositivo ni se guarda en ningún servidor. Es un cálculo aproximado, no constituye asesoría financiera.</span>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="ad-slot ad-slot--leaderboard">Publicidad
+      <!-- PEGA AQUÍ TU CÓDIGO DE ADSENSE -->
+    </div>
+  </div>
+
+  <section class="content-block reveal">
+    <div class="wrap-narrow">
+      <div class="section-head" style="text-align:left; margin-bottom:1rem">
+        <h2>Cómo funciona esta calculadora</h2>
+      </div>
+      <div class="steps">
+        <div class="step"><span class="num">1</span><div><h3>Introduce los datos</h3><p>Precio de la vivienda, tu entrada, el interés (TIN) y el plazo en años.</p></div></div>
+        <div class="step"><span class="num">2</span><div><h3>Calcula al instante</h3><p>Aplicamos el sistema de amortización francés, el mismo que usan los bancos españoles.</p></div></div>
+        <div class="step"><span class="num">3</span><div><h3>Revisa el detalle</h3><p>Cuota, intereses totales, gráfico de evolución y tabla de amortización mes a mes.</p></div></div>
+      </div>
+
+      <h2>Qué es el sistema de amortización francés</h2>
+      <p>Casi todas las hipotecas en España usan el <strong>sistema francés</strong>: la cuota mensual es siempre la misma durante toda la vida del préstamo, pero la proporción entre capital e intereses cambia con el tiempo. Al principio, la mayor parte de tu cuota son intereses, porque el capital pendiente todavía es alto. A medida que vas devolviendo capital, cada cuota paga más capital y menos intereses, aunque el importe total no cambie.</p>
+      <p>Esto explica por qué, si miras la tabla de amortización, los primeros años apenas reducen el capital pendiente pese a pagar religiosamente cada mes — es matemática pura, no un truco del banco.</p>
+
+      <h2>TIN vs. TAE: qué mirar al comparar ofertas</h2>
+      <p>El <strong>TIN</strong> (Tipo de Interés Nominal) es el porcentaje puro que aplica el banco sobre el capital pendiente. La <strong>TAE</strong> (Tasa Anual Equivalente) añade comisiones, gastos y el efecto de la periodicidad de los pagos, por lo que refleja mejor el coste real. Esta calculadora usa el TIN para el cálculo puro de cuota e intereses; si tu oferta incluye comisión de apertura o seguros obligatorios, súmalos aparte.</p>
+      <ul class="checklist">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"/></svg> Compara siempre la TAE, no solo el TIN.</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"/></svg> Ten en cuenta los gastos de compraventa (notaría, registro, impuestos), suelen sumar un 10-12% adicional.</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"/></svg> Revisa si el interés es fijo, variable o mixto antes de fijarte solo en la cuota inicial.</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="ad-slot ad-slot--incontent">Publicidad
+      <!-- PEGA AQUÍ TU CÓDIGO DE ADSENSE -->
+    </div>
+  </div>
+
+  <section class="content-block reveal">
+    <div class="wrap-narrow">
+      <div class="section-head" style="text-align:left; margin-bottom:0">
+        <h2>Preguntas frecuentes sobre hipotecas</h2>
+      </div>
+      <div class="faq-list" data-faq-hipoteca></div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="wrap-narrow">
+      <div class="section-head" style="text-align:left; margin-bottom:0">
+        <h2>Más calculadoras</h2>
+      </div>
+      <div class="tools-grid" data-tools-grid></div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="brand"><span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5L12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9 21v-6h6v6"/></svg></span> CalculaPro</div>
+      <div class="footer-links">
+        <a href="privacidad.html">Privacidad</a>
+        <a href="aviso-legal.html">Aviso legal</a>
+        <a href="mailto:hola@TU-DOMINIO-AQUI.com">Contacto</a>
+      </div>
+    </div>
+    <p class="footer-note">CalculaPro ofrece herramientas de cálculo orientativas. Los resultados no constituyen asesoramiento financiero, fiscal ni legal. © <span data-year></span> CalculaPro.</p>
+  </div>
+</footer>
+
+<script defer src="lib/manifest.js"></script>
+<script defer src="main.js?v=20260918"></script>
+</body>
+</html>
